@@ -9,23 +9,25 @@
     <style>
         body {
             font-family: 'Tahoma', 'Arial', sans-serif;
-            background: url('Bg.jpg') no-repeat center center;
-            background-size: cover;
+            background: url('Bg.jpg') no-repeat center top;
+            background-size: contain;
+            background-color: #fdfdfd;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center; /* محتوا را دقیقاً در مرکز عمودی قرار می‌دهد */
             min-height: 100vh;
             overflow-x: hidden;
         }
         .container {
-            width: 95%;
+            width: 92%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 0;
+            padding: 20px 0;
+            box-sizing: border-box;
         }
         .logo-section {
             width: 100%;
@@ -35,140 +37,113 @@
             align-items: center;
         }
         .logo {
-            width: 160px; /* لوگو بزرگتر شد */
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            width: 190px; 
         }
         .main-title {
             font-size: 22px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 2px;
+            margin-top: 5px;
         }
-        /* رنگ‌های پاستلی */
         .color-a { color: #ffb3ca; } 
         .color-amp { color: #d1b3ff; } 
         .color-p { color: #b3ffda; } 
-        .color-kids { color: #ffb3ca; } 
 
         .slogan {
             font-size: 14px;
-            color: #777;
-            text-align: center;
+            color: #888;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .link-card {
             width: 100%;
             display: flex;
+            flex-direction: row-reverse; 
             align-items: center;
-            margin-bottom: 8px; /* فاصله کمتر برای جا شدن در صفحه */
+            margin-bottom: 10px;
             padding: 10px 15px;
-            border-radius: 15px;
+            border-radius: 18px;
             text-decoration: none;
-            transition: 0.2s;
             box-sizing: border-box;
-            position: relative;
         }
-        .link-card:active { transform: scale(0.97); }
 
-        /* رنگ‌های پاستلی برای کادرها */
-        .card-green { background-color: #c1f0c1; color: #2d5a2d; }
-        .card-blue { background-color: #c1e2f0; color: #2d4a5a; }
-        .card-pink { background-color: #ffd1dc; color: #5a2d3d; }
-        .card-purple { background-color: #e0c3fc; color: #4b2d5a; }
+        .card-green { background-color: #d4f5d4; color: #2d5a2d; }
+        .card-blue { background-color: #d4eaf5; color: #2d4a5a; }
+        .card-pink { background-color: #f5d4dc; color: #5a2d3d; }
+        .card-purple { background-color: #ebd4f5; color: #4b2d5a; }
 
         .card-content {
             display: flex;
             align-items: center;
             flex: 1;
-        }
-        .card-content i {
-            font-size: 20px;
-            margin-left: 12px;
+            justify-content: flex-end; 
         }
         .text-group {
             display: flex;
             flex-direction: column;
+            margin-right: 12px;
+            text-align: right;
         }
         .main-text { font-weight: bold; font-size: 15px; }
-        .sub-text { font-size: 11px; opacity: 0.8; }
+        .sub-text { font-size: 11px; opacity: 0.7; }
+        
+        .card-content i { font-size: 22px; }
 
         .arrow-circle {
-            width: 25px;
-            height: 25px;
+            width: 26px;
+            height: 26px;
             background: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: black;
+            color: #333;
             font-size: 12px;
-            margin-right: 10px;
         }
 
-        /* کادر سفید نهایی */
-        .contact-box {
+        .white-box {
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             border-radius: 20px;
-            padding: 12px;
+            padding: 15px;
             box-sizing: border-box;
             margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,.05);
         }
-        .top-info-row {
+        .info-row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
+            align-items: stretch;
         }
-        .contact-info {
-            text-align: right;
-            flex: 1;
+        .info-col { flex: 1; text-align: center; }
+        .divider {
+            width: 1px;
+            background-color: #eee;
+            margin: 0 10px;
         }
-        .contact-title {
-            color: #8e44ad; 
-            font-weight: bold;
-            font-size: 15px;
-            margin-bottom: 5px;
+        
+        .box-title { font-weight: bold; font-size: 14px; margin-bottom: 8px; }
+        .contact-title { color: #9b59b6; }
+        .hour-title { color: #ff69b4; display: flex; align-items: center; justify-content: center; gap: 4px;}
+        
+        .box-text { font-size: 11px; color: #555; line-height: 1.8; text-decoration: none; display: block; }
+
+        .address-section {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid #f5f5f5;
+            text-align: center;
         }
-        .phone-item {
+        .address-link {
             text-decoration: none;
             color: #444;
-            font-size: 13px;
-            display: block;
-            margin-bottom: 3px;
-        }
-        .working-info {
-            text-align: left;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .working-title {
-            color: #ff69b4; 
-            font-weight: bold;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .hours-text {
-            font-size: 11px;
-            color: #666;
-            line-height: 1.4;
-            text-align: left;
-        }
-        .address-text {
-            text-align: center;
             font-size: 12px;
-            color: #555;
-            margin-top: 10px;
-            border-top: 1px solid #eee;
-            padding-top: 8px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
+        .loc-icon { color: #ff4d4d; font-size: 18px; margin-bottom: 5px; }
+        .touch-text { color: #9b59b6; font-size: 10px; display: block; margin-top: 2px; }
+
     </style>
 </head>
 <body>
@@ -182,77 +157,80 @@
     <!-- عنوان و شعار -->
     <div class="main-title">
         <span class="color-a">A</span><span class="color-amp">&P</span> <span class="color-p">kids</span> 
-        <span style="color: #777; font-size: 18px;">پوشاک کودک</span>
+        <span style="color: #666; font-size: 18px;">پوشاک کودک</span>
     </div>
     <div class="slogan">کیفیت راحتی و زیبایی برای کوچولوها 🩷</div>
 
-    <!-- دکمه‌های کانال‌ها -->
+    <!-- دکمه‌ها -->
     <a href="https://rubika.ir/joinc/EJJGDGBB0BCACFNMSCCODVKTFIBZTHRE" target="_blank" class="link-card card-green">
+        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
-            <i class="fas fa-gem"></i>
             <div class="text-group">
                 <span class="main-text">روبیکا</span>
                 <span class="sub-text">کانال روبیکا ما را دنبال کنید</span>
             </div>
+            <i class="fas fa-gem"></i>
         </div>
-        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
     </a>
 
     <a href="https://t.me/+kYmD47xbAnliYmU0" target="_blank" class="link-card card-blue">
+        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
-            <i class="fab fa-telegram-plane"></i>
             <div class="text-group">
                 <span class="main-text">تلگرام</span>
                 <span class="sub-text">به کانال تلگرام ما بپیوندید</span>
             </div>
+            <i class="fab fa-telegram"></i>
         </div>
-        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
     </a>
 
     <a href="https://instagram.com/apkids.style" target="_blank" class="link-card card-pink">
+        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
-            <i class="fab fa-instagram"></i>
             <div class="text-group">
                 <span class="main-text">اینستاگرام</span>
                 <span class="sub-text">از صفحه ما دیدن کنید</span>
             </div>
+            <i class="fab fa-instagram"></i>
         </div>
-        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
     </a>
 
     <a href="tel:02156800325" class="link-card card-purple">
+        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
-            <i class="fas fa-phone-alt"></i>
             <div class="text-group">
                 <span class="main-text">تماس با فروشگاه</span>
                 <span class="sub-text">برای ارتباط مستقیم با ما</span>
             </div>
+            <i class="fas fa-phone"></i>
         </div>
-        <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
     </a>
 
     <!-- کادر سفید اطلاعات -->
-    <div class="contact-box">
-        <div class="top-info-row">
-            <div class="contact-info">
-                <div class="contact-title">اطلاعات تماس</div>
-                <a href="tel:09363081827" class="phone-item">علی فیضی: 09363081827</a>
-                <a href="tel:09385250423" class="phone-item">پوریا بخشی: 09385250423</a>
+    <div class="white-box">
+        <div class="info-row">
+            <div class="info-col">
+                <div class="box-title contact-title">اطلاعات تماس</div>
+                <a href="tel:09363081827" class="box-text">علی فیضی: 09363081827</a>
+                <a href="tel:09385250423" class="box-text">پوریا بخشی: 09385250423</a>
             </div>
-            <div class="working-info">
-                <div class="working-title"><i class="fas fa-clock"></i> ساعت کاری</div>
-                <div class="hours-text">
-                    شنبه تا چهارشنبه ۹ تا ۱۷<br>
-                    پنجشنبه ۹ تا ۱۴<br>
-                    جمعه تعطیل
-                </div>
+            <div class="divider"></div>
+            <div class="info-col">
+                <div class="box-title hour-title"><i class="fas fa-clock"></i> ساعت کاری</div>
+                <span class="box-text">شنبه تا چهارشنبه ۹ تا ۱۷</span>
+                <span class="box-text">پنجشنبه ۹ تا ۱۴</span>
+                <span class="box-text" style="color:red">جمعه تعطیل</span>
             </div>
         </div>
 
-        <div class="address-text">
-            <b style="color:#8e44ad">آدرس:</b> بازار بزرگ تهران، بازارچه سعادت، کوچه عابدین زاده (روبروی ورودی ۳ پارسیان)، پاساژ فرد، زیر همکف، پلاک ۱۱۶
+        <div class="address-section">
+            <a href="https://www.google.com/maps/search/?api=1&query=بازار+بزرگ+تهران+پاساژ+فرد" target="_blank" class="address-link">
+                <i class="fas fa-map-marker-alt loc-icon"></i><br>
+                <b style="color:#8e44ad">آدرس:</b> بازار بزرگ تهران، بازارچه سعادت، کوچه عابدین زاده (روبروی ورودی ۳ پارسیان)، پاساژ فرد، زیر همکف، پلاک ۱۱۶
+                <span class="touch-text">برای مسیریابی لمس کنید</span>
+            </a>
         </div>
-    </div
+    </div>
 </div>
 
 </body>
