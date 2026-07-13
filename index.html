@@ -16,12 +16,12 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center; /* محتوا را دقیقاً در مرکز عمودی قرار می‌دهد */
+            align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
         }
         .container {
-            width: 92%;
+            width: 95%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
@@ -31,19 +31,19 @@
         }
         .logo-section {
             width: 100%;
-            height: 22vh; 
+            height: 28vh; 
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .logo {
-            width: 190px; 
+            width: 250px; /* لوگو در بزرگترین حالت ممکن */
         }
         .main-title {
             font-size: 22px;
             font-weight: bold;
             text-align: center;
-            margin-top: 5px;
+            margin-top: 0;
         }
         .color-a { color: #ffb3ca; } 
         .color-amp { color: #d1b3ff; } 
@@ -62,16 +62,17 @@
             flex-direction: row-reverse; 
             align-items: center;
             margin-bottom: 10px;
-            padding: 10px 15px;
-            border-radius: 18px;
+            padding: 12px 15px;
+            border-radius: 20px;
             text-decoration: none;
             box-sizing: border-box;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
 
-        .card-green { background-color: #d4f5d4; color: #2d5a2d; }
-        .card-blue { background-color: #d4eaf5; color: #2d4a5a; }
-        .card-pink { background-color: #f5d4dc; color: #5a2d3d; }
-        .card-purple { background-color: #ebd4f5; color: #4b2d5a; }
+        .card-green { background-color: #e2f9e2; color: #2d5a2d; }
+        .card-blue { background-color: #e2f1f9; color: #2d4a5a; }
+        .card-pink { background-color: #f9e2e8; color: #5a2d3d; }
+        .card-purple { background-color: #eee2f9; color: #4b2d5a; }
 
         .card-content {
             display: flex;
@@ -85,14 +86,19 @@
             margin-right: 12px;
             text-align: right;
         }
-        .main-text { font-weight: bold; font-size: 15px; }
+        .main-text { font-weight: bold; font-size: 16px; }
         .sub-text { font-size: 11px; opacity: 0.7; }
         
-        .card-content i { font-size: 22px; }
+        /* آیکون‌های رنگی و اصلی */
+        .card-content i { font-size: 24px; }
+        .fa-rubika-color { color: #2ecc71 !important; } /* سبز اصلی روبیکا */
+        .fa-telegram-color { color: #0088cc !important; } /* آبی اصلی تلگرام */
+        .fa-instagram-color { color: #E1306C !important; } /* رنگی اصلی اینستاگرام */
+        .fa-phone-color { color: #9b59b6 !important; }
 
         .arrow-circle {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             background: white;
             border-radius: 50%;
             display: flex;
@@ -104,30 +110,31 @@
 
         .white-box {
             width: 100%;
-            background: white;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
             padding: 15px;
             box-sizing: border-box;
             margin-top: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
         .info-row {
             display: flex;
             justify-content: space-between;
             align-items: stretch;
+            margin-bottom: 5px;
         }
         .info-col { flex: 1; text-align: center; }
         .divider {
             width: 1px;
-            background-color: #eee;
+            background-color: #f0f0f0;
             margin: 0 10px;
         }
         
-        .box-title { font-weight: bold; font-size: 14px; margin-bottom: 8px; }
+        .box-title { font-weight: bold; font-size: 14px; margin-bottom: 10px; }
         .contact-title { color: #9b59b6; }
         .hour-title { color: #ff69b4; display: flex; align-items: center; justify-content: center; gap: 4px;}
         
-        .box-text { font-size: 11px; color: #555; line-height: 1.8; text-decoration: none; display: block; }
+        .box-text { font-size: 12px; color: #444; line-height: 2; text-decoration: none; display: block; }
 
         .address-section {
             margin-top: 12px;
@@ -137,31 +144,30 @@
         }
         .address-link {
             text-decoration: none;
-            color: #444;
+            color: #555;
             font-size: 12px;
             line-height: 1.6;
         }
-        .loc-icon { color: #ff4d4d; font-size: 18px; margin-bottom: 5px; }
-        .touch-text { color: #9b59b6; font-size: 10px; display: block; margin-top: 2px; }
+        .loc-icon { color: #ff4d4d; font-size: 20px; margin-bottom: 5px; }
+        .touch-text { color: #9b59b6; font-size: 11px; display: block; margin-top: 4px; font-weight: bold; }
 
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- لوگو -->
+    <!-- لوگوی بزرگتر -->
     <div class="logo-section">
         <img src="Logo.png" alt="A&P Kids" class="logo">
     </div>
 
-    <!-- عنوان و شعار -->
     <div class="main-title">
         <span class="color-a">A</span><span class="color-amp">&P</span> <span class="color-p">kids</span> 
         <span style="color: #666; font-size: 18px;">پوشاک کودک</span>
     </div>
     <div class="slogan">کیفیت راحتی و زیبایی برای کوچولوها 🩷</div>
 
-    <!-- دکمه‌ها -->
+    <!-- روبیکا با رنگ اصلی -->
     <a href="https://rubika.ir/joinc/EJJGDGBB0BCACFNMSCCODVKTFIBZTHRE" target="_blank" class="link-card card-green">
         <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
@@ -169,10 +175,11 @@
                 <span class="main-text">روبیکا</span>
                 <span class="sub-text">کانال روبیکا ما را دنبال کنید</span>
             </div>
-            <i class="fas fa-gem"></i>
+            <i class="fas fa-gem fa-rubika-color"></i>
         </div>
     </a>
 
+    <!-- تلگرام رنگی -->
     <a href="https://t.me/+kYmD47xbAnliYmU0" target="_blank" class="link-card card-blue">
         <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
@@ -180,10 +187,11 @@
                 <span class="main-text">تلگرام</span>
                 <span class="sub-text">به کانال تلگرام ما بپیوندید</span>
             </div>
-            <i class="fab fa-telegram"></i>
+            <i class="fab fa-telegram fa-telegram-color"></i>
         </div>
     </a>
 
+    <!-- اینستاگرام رنگی -->
     <a href="https://instagram.com/apkids.style" target="_blank" class="link-card card-pink">
         <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
@@ -191,10 +199,11 @@
                 <span class="main-text">اینستاگرام</span>
                 <span class="sub-text">از صفحه ما دیدن کنید</span>
             </div>
-            <i class="fab fa-instagram"></i>
+            <i class="fab fa-instagram fa-instagram-color"></i>
         </div>
     </a>
 
+    <!-- تماس -->
     <a href="tel:02156800325" class="link-card card-purple">
         <div class="arrow-circle"><i class="fas fa-chevron-left"></i></div>
         <div class="card-content">
@@ -202,24 +211,24 @@
                 <span class="main-text">تماس با فروشگاه</span>
                 <span class="sub-text">برای ارتباط مستقیم با ما</span>
             </div>
-            <i class="fas fa-phone"></i>
+            <i class="fas fa-phone-alt fa-phone-color"></i>
         </div>
     </a>
 
-    <!-- کادر سفید اطلاعات -->
+    <!-- اطلاعات نهایی -->
     <div class="white-box">
         <div class="info-row">
             <div class="info-col">
                 <div class="box-title contact-title">اطلاعات تماس</div>
-                <a href="tel:09363081827" class="box-text">علی فیضی: 09363081827</a>
-                <a href="tel:09385250423" class="box-text">پوریا بخشی: 09385250423</a>
+                <a href="tel:09363081827" class="box-text">علی فیضی 09363081827</a>
+                <a href="tel:09385250423" class="box-text">پوریا بخشی 09385250423</a>
             </div>
             <div class="divider"></div>
             <div class="info-col">
                 <div class="box-title hour-title"><i class="fas fa-clock"></i> ساعت کاری</div>
                 <span class="box-text">شنبه تا چهارشنبه ۹ تا ۱۷</span>
                 <span class="box-text">پنجشنبه ۹ تا ۱۴</span>
-                <span class="box-text" style="color:red">جمعه تعطیل</span>
+                <span class="box-text" style="color:#ff4d4d">جمعه تعطیل</span>
             </div>
         </div>
 
@@ -230,7 +239,7 @@
                 <span class="touch-text">برای مسیریابی لمس کنید</span>
             </a>
         </div>
-    </div>
+    </div
 </div>
 
 </body>
